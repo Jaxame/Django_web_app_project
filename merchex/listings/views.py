@@ -5,7 +5,7 @@ from listings.models import Band, Listing
 def hello(request):
     bands = Band.objects.all()
     return render(request,
-                 'bands/hello.html',
+                 'listings/hello.html',
                  {'bands': bands})
 
 def about(request):
