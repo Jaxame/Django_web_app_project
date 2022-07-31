@@ -26,9 +26,9 @@ def listings(request):
         <h1>Listings !</h1>
         <p>Titre des affiches :<p>
         <ul>
-            <li>{listings[0].name}</li>
-            <li>{listings[1].name}</li>
-            <li>{listings[2].name}</li>
-            <li>{listings[3].name}</li>
+            <li>{listings[0].title}</li>
+            <li>{listings[1].title}</li>
+            <li>{listings[2].title}</li>
+            <li>{listings[3].title}</li>
         </ul>
     """)
