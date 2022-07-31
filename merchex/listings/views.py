@@ -6,3 +6,9 @@ def hello(request):
 
 def about(request):
     return HttpResponse('<h1>À propos</h1> <p>Nous adorons merch !</p>')
+
+def contact(request):
+    return HttpResponse('<h1>Contact us !</h1> <p>Adresse</p>')
+
+def listings(request):
+    return HttpResponse('<h1>Listings !</h1> <p>Liste</p>')
