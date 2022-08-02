@@ -8,7 +8,7 @@ class Band(models.Model):
         ALTERNATIVE_ROCK = 'AR'
         POP_ROCK = 'PR'
         HARD_ROCK = 'HR'
-        
+
     name = models.fields.CharField(max_length=100)
     genre = models.fields.CharField(choices=Genre.choices, max_length=5)
     biography = models.fields.CharField(max_length=1000)
@@ -19,4 +19,16 @@ class Band(models.Model):
     official_homepage = models.fields.URLField(null=True, blank=True)
 
 class Listing(models.Model):
+    class Type(models.TextChoices):
+        RECORDS = 'R'
+        CLOTHING = 'C'
+        POSTERS = 'P'
+        MISCELLANIOUS = 'M'
     title = models.fields.CharField(max_length=100)
+    description = models.fields.CharField(
+        max_length=100, null=True, blank=True)
+    sold = models.fields.BooleanField(default=False)
+    year = models.fields.IntegerField(
+    validators=[MinValueValidator(1900), MaxValueValidator(2021)]
+    )
+    type = models.fields.CharField(choices=Type.choices, max_length=5)
