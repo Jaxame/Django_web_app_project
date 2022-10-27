@@ -25,3 +25,4 @@ urlpatterns = [
     path('contact-us/', views.contact),
     path('listings/', views.listings),
 ]
+handler404 = 'listings.views.band_detail'
