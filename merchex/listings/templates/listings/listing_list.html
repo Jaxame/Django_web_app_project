@@ -1,0 +1,24 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+
+<h1>Listings !</h1>
+<p>J'ai {{ listings|length }} titres d'affiche :</p>
+<p>
+    J'ai..
+    {% if listings|length < 5 %}
+        peu de
+    {% elif listings|length < 10 %}
+        quelques
+    {% else %}
+        beaucoup de
+    {% endif %}
+        titres d'affiche.
+</p>
+<ul>
+    {% for listing in listings %}
+        <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li>
+        {% comment %} <li>{{ listing.title|upper }}</li> {% endcomment %}
+    {% endfor %}
+</ul>
+
+{% endblock %}
