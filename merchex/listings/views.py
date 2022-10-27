@@ -9,9 +9,9 @@ def band_list(request):
            {'bands': bands})
 
 def band_detail(request, band_id):
-  band = get_object_or_404(Band, id=band_id)
-# band = Band.objects.get(id=band_id)  
-  return render(request,
+    band = get_object_or_404(Band, id=band_id)
+#   band = Band.objects.get(id=band_id)  
+    return render(request,
           'listings/band_detail.html',
           {'band': band}) 
 
@@ -28,8 +28,15 @@ def contact(request):
     return render(request,
                  'listings/contact.html')
 
-def listings(request):
+def listing_list(request):
     listings = Listing.objects.all()
     return render(request,
-                 'listings/listing.html',
+                 'listings/listing_list.html',
                  {'listings': listings})
+
+def listing_detail(request, listing_id):
+    listing = get_object_or_404(Listing, id=listing_id)
+# band = Band.objects.get(id=band_id)  
+    return render(request,
+          'listings/listing_detail.html',
+          {'listing': listing}) 
