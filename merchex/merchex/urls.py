@@ -27,7 +27,7 @@ urlpatterns = [
     # path('contact-us/', views.contact),
     # path('listings/', views.listings),
     path('listings/', views.listing_list, name='listing-list'),
-    path('listings/<int:listing_id>/', views.listing_detail, name='listing-detail'),
+    path('listings/<int:listing_id>/', views.listing_detail,name='listing-detail'),
 ]
 handler404 = 'listings.views.band_detail'
 handler404 = 'listings.views.listing_detail'
