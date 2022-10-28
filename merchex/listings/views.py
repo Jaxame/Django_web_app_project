@@ -26,7 +26,12 @@ def about(request):
                  'listings/about.html')
 
 def contact(request):
-    form = ContactUsForm()  
+    if request.method == 'POST':
+        # créer une instance de notre formulaire et le remplir avec les données POST
+        form = ContactUsForm(request.POST)
+    else:
+        # ceci doit être une requête GET, donc créer un formulaire vide
+        form = ContactUsForm()
     return render(request,
         'listings/contact.html',
         {'form': form})
