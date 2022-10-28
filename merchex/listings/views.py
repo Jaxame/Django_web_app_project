@@ -21,10 +21,14 @@ def band_detail(request, band_id):
 #    return render(request,
 #           'listings/band_detail.html',
 #          {'id': band_id}) 
+def band_create(request):
+    form = BandForm()
+    return render(request, 
+        'listings/band_create.html')
 
 def about(request):
     return render(request,
-                 'listings/about.html')
+        'listings/about.html')
 
 def contact(request):
     if request.method == 'POST':
@@ -49,17 +53,17 @@ def contact(request):
 #                  'listings/contact.html')
 def email_sent(request):
     return render(request,
-                 'listings/email_sent.html')
+        'listings/email_sent.html')
 
 def listing_list(request):
     listings = Listing.objects.all()
     return render(request,
-                 'listings/listing_list.html',
-                 {'listings': listings})
+        'listings/listing_list.html',
+        {'listings': listings})
 
 def listing_detail(request, listing_id):
     listing = get_object_or_404(Listing, id=listing_id)
 # band = Band.objects.get(id=band_id)  
     return render(request,
-          'listings/listing_detail.html',
-          {'listing': listing}) 
+        'listings/listing_detail.html',
+        {'listing': listing}) 
