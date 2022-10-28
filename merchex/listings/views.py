@@ -1,4 +1,5 @@
-from django.http import HttpResponse
+from django.urls import reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from listings.models import Band, Listing
 from listings.forms import ContactUsForm, BandForm
@@ -29,7 +30,7 @@ def band_create(request):
             band = form.save()
             # redirige vers la page de détail du groupe que nous venons de créer
             # nous pouvons fournir les arguments du motif url comme arguments à la fonction de redirection
-            return redirect('band-detail', band.id)
+            return HttpResponseRedirect(reverse('band-detail', kwargs={'band_id': band.id}))
     else:
         form = BandForm()
     return render(request, 
