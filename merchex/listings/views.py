@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from listings.models import Band, Listing
 from listings.forms import ContactUsForm
 from django.core.mail import send_mail
@@ -36,7 +36,8 @@ def contact(request):
             message=form.cleaned_data['message'],
             from_email=form.cleaned_data['email'],
             recipient_list=['admin@merchex.xyz'],
-        )
+            )
+            return redirect('email-sent')
     else:
         # ceci doit être une requête GET, donc créer un formulaire vide
         form = ContactUsForm()
@@ -46,6 +47,9 @@ def contact(request):
 # def contact(request):
 #     return render(request,
 #                  'listings/contact.html')
+def email_sent(request):
+    return render(request,
+                 'listings/email_sent.html')
 
 def listing_list(request):
     listings = Listing.objects.all()
