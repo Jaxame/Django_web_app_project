@@ -16,6 +16,7 @@
 
 <p>{{ listing.description }}</p>
 
-<a href="{% url 'listing-list' %}">Retour à tous les listings</a>
+<a href="{% url 'listing-update' listing.id %}">Modifier cet affiche</a>
+<a href="{% url 'listing-list' %}">Retour à toutes les affiches</a>
 
 {% endblock %}
