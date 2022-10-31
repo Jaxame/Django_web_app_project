@@ -2,6 +2,8 @@
 {% block content %}
 
 <h1>Listings !</h1>
+
+<a href="{% url 'listing-create' %}">Créer une nouvelle affiche</a>
 <p>J'ai {{ listings|length }} titres d'affiche :</p>
 <p>
     J'ai..

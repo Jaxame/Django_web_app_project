@@ -30,6 +30,7 @@ urlpatterns = [
     # path('listings/', views.listings),
     path('listings/', views.listing_list, name='listing-list'),
     path('listings/<int:listing_id>/', views.listing_detail,name='listing-detail'),
+    path('listings/add/', views.listing_create, name='listing-create'),
 ]
 handler404 = 'listings.views.band_detail'
 handler404 = 'listings.views.listing_detail'
