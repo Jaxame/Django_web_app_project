@@ -23,6 +23,7 @@ urlpatterns = [
     path('bands/<int:band_id>/', views.band_detail, name='band-detail'),
     # path('bands/<int:band_id>/', views.band_detail),
     path('bands/<int:id>/change/', views.band_update, name='band-update'),
+    path('bands/<int:id>/delete/', views.band_delete, name='band-delete'),
     path('bands/add/', views.band_create, name='band-create'),
     path('about-us/', views.about, name='about'),
     path('contact-us/', views.contact, name='contact'),
@@ -33,6 +34,7 @@ urlpatterns = [
     path('listings/<int:listing_id>/', views.listing_detail,name='listing-detail'),
     path('listings/add/', views.listing_create, name='listing-create'),
     path('listings/<int:id>/change/', views.listing_update, name='listing-update'),
+    path('listings/<int:id>/delete/', views.listing_delete, name='listing-delete'),
 ]
 handler404 = 'listings.views.band_detail'
 handler404 = 'listings.views.listing_detail'

@@ -7,7 +7,7 @@
 <ul>
     {% for band in bands %}
         <li><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a>
-        - <a href="{% url 'band-update' band.id %}">[modifier]</a></li>
+        - <a href="{% url 'band-update' band.id %}">[Modifier]</a> - <a href="{% url 'band-delete' band.id %}">[Supprimer]</a></li>
         {% comment %} <li><a href="">{{ band.name }}</a></li> {% endcomment %}
     {% endfor %}
    {% comment %} {% for band in bands %}
